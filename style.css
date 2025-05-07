@@ -1,0 +1,138 @@
+/* Base styles – mobile first */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "stinger-variable", sans-serif;
+    background: white;
+    color: #000;
+    line-height: 1.4;
+  }
+  
+  header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
+  
+  .language-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    border: none;
+    background: #F18B45;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .intro {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background-image: url(img/Ringe.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; /* oder contain je nach gewünschter Skalierung */
+  }
+  
+  .intro h1 {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .truth {
+    color: #2CE2EF;;
+  }
+  
+  .or {
+    color: #000;
+  }
+  
+  .dare {
+    color: #F18B45;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+  }
+  
+  .play-button {
+    background: #2CE2EF;;
+    color: #F18B45;
+    border: none;
+    border-radius: 20px;
+    padding: 0.7rem 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .game-section {
+    background: linear-gradient(to bottom, #F18B45 50%, #2CE2EF 50%);
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .game-box {
+    background: #1a0d0d;
+    border-radius: 20px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  }
+  
+  .truth-button,
+  .dare-button {
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    padding: 0.8rem 1.5rem;
+    width: 100%;
+    box-shadow: 2px 2px 0 #00000040;
+    cursor: pointer;
+  }
+  
+  .truth-button {
+    background: #2CE2EF;;
+    color: white;
+  }
+  
+  .dare-button {
+    background: #F18B45;
+    color: white;
+  }
+  
+  /* Desktop styles */
+  @media (min-width: 768px) {
+    .intro h1 {
+      font-size: 3rem;
+    }
+  
+    .subtitle {
+      font-size: 1.3rem;
+    }
+  
+    .game-box {
+      flex-direction: row;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem 3rem;
+    }
+  
+    .truth-button,
+    .dare-button {
+      width: auto;
+      min-width: 120px;
+    }
+  }
+  
