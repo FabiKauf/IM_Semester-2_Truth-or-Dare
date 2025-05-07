@@ -73,7 +73,7 @@
   .game-section {
     background: linear-gradient(to bottom, #F18B45 50%, #2CE2EF 50%);
     padding: 2rem 1rem;
-    display: flex;
+    /*display: flex;*/
     justify-content: center;
   }
   
@@ -89,7 +89,7 @@
     max-width: 300px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   }
-  
+
   .truth-button,
   .dare-button {
     font-size: 1rem;
