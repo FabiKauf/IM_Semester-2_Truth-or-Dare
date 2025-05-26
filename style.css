@@ -69,13 +69,13 @@
     font-size: 4.5rem; /* größerer Text für mobile */
     line-height: 1.2;
     margin-bottom: 1rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
   }
   
   .subtitle {
     font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 2rem;
+    margin-bottom: 6rem;
   }
   
   
@@ -107,9 +107,8 @@
  
   .game-section {
     position: relative;
-    padding: 6rem 0 8rem; /* mehr Raum oben/unten */
-    background: #FFF;
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0) 30%, rgba(44, 226, 239, 1) 30%, rgba(44, 226, 239, 1) 60%, rgba(241, 139, 69, 1) 60%, rgba(241, 139, 69, 1) 90%, rgba(255, 255, 255, 0) 90%);
+    padding: 4rem 3rem; /* mehr Raum oben/unten */
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 20%, rgba(44, 226, 239, 1) 20%, rgba(44, 226, 239, 1) 55%, rgba(241, 139, 69, 1) 55%, rgba(241, 139, 69, 1) 90%, rgba(255, 255, 255, 1) 90%);
   }
   
 
@@ -150,7 +149,7 @@
   }
   
   .chat-img {
-    width: 100%;
+    width: 115%;
     max-width: 380px;
     border-radius: 3rem;
     margin-top: -40px; /* höher ziehen ins weiße */
@@ -163,6 +162,38 @@
 
   .desktop-only {
     display: none;
+  }
+  .chat-bubbles {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    right: 0;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+    z-index: 1;
+  }
+  
+  .bubble {
+    max-width: 80%;
+    padding: 1rem;
+    border-radius: 1rem;
+    color: white;
+    font-size: 1rem;
+    line-height: 1.3;
+    box-shadow: 2px 2px 0 #000;
+  }
+  
+  .bubble.truth {
+    background-color: #2CE2EF;
+    align-self: flex-start;
+  }
+  
+  .bubble.dare {
+    background-color: #F18B45;
+    align-self: flex-end;
   }
   
   /*.chat-image-wrapper img {
@@ -216,7 +247,7 @@
     .game-section {
       padding: 2rem 1rem; /* mehr Raum oben/unten */
       background: #FFF;
-      background: linear-gradient(0deg, rgba(255, 255, 255, 1) 30%, rgba(44, 226, 239, 1) 30%, rgba(44, 226, 239, 1) 60%, rgba(241, 139, 69, 1) 60%, rgba(241, 139, 69, 1) 90%, rgba(255, 255, 255, 1) 90%);
+      background: linear-gradient(0deg, rgba(255, 255, 255, 1) 10%, rgba(44, 226, 239, 1) 10%, rgba(44, 226, 239, 1) 55%, rgba(241, 139, 69, 1) 55%, rgba(241, 139, 69, 1) 100%);
       justify-content: center;
     }
 
