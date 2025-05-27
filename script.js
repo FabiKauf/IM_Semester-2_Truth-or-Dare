@@ -44,35 +44,41 @@ function addBubble(text, type) {
 // API-Abruf
 async function fetchTruth() {
   const lang = getSelectedLanguage();
-  const response = await fetch('https://api.truthordarebot.xyz/v1/truth');
-  const data = await response.json();
-  if(lang == "en"){
-    addBubble(data.question, 'truth');
-  } else {
-    addBubble(data.translations[lang], 'truth');
+  try {
+    const response = await fetch('https://api.truthordarebot.xyz/api/truth');
+    const data = await response.json();
+    if (lang == "en") {
+      addBubble(data.question || "Could not load a Truth. Please try again.", 'truth');
+    } else {
+      if (data.translations[lang] == null) {
+        addBubble("Could not load a Truth. Please try again.", 'truth');
+      } else {
+        addBubble(data.translations[lang], 'truth');
+      }
+    }
+  } catch (error) {
+    addBubble("Could not load a Truth. Please try again.", 'truth');
   }
-  
 }
 
-async function fetchDare() {
-  const lang = getSelectedLanguage();
-  const response = await fetch('https://api.truthordarebot.xyz/api/dare');
-  const data = await response.json();
-  if(lang == "en"){
-    addBubble(data.question, 'dare');
-  } else {
-    console.log("data.translations[lang]");
-    if (data.translations[lang] == null) {
-      // console.log("hat nicht funktioniert");
-      fetchDare(); // erneut aufrufen, falls kein Ergebnis vorhanden
-    } 
-    else{
-
-      addBubble(data.translations[lang], 'dare');
+  async function fetchDare() {
+    const lang = getSelectedLanguage();
+    try {
+      const response = await fetch('https://api.truthordarebot.xyz/api/dare');
+      const data = await response.json();
+      if (lang == "en") {
+        addBubble(data.question || "Could not load a Dare. Please try again.", 'dare');
+      } else {
+        if (data.translations[lang] == null) {
+          addBubble("Could not load a Dare. Please try again.", 'dare');
+        } else {
+          addBubble(data.translations[lang], 'dare');
+        }
+      }
+    } catch (error) {
+      addBubble("Could not load a Dare. Please try again.", 'dare');
     }
   }
-
-}
 
 
 // Event Listener
