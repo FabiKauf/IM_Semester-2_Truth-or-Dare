@@ -3,6 +3,14 @@ const truthButton = document.querySelector('.truth-button');
 const dareButton = document.querySelector('.dare-button');
 const chatBubbles = document.querySelector('.chat-bubbles');
 
+const playButton = document.querySelector('.play-button');
+const gameSection = document.querySelector('.game-section');
+
+playButton.addEventListener('click', () => {
+  gameSection.classList.add('active');
+  gameSection.scrollIntoView({ behavior: 'smooth' }); // optional, für sanftes Scrollen
+});
+
 // Funktion: Fensterbreite prüfen (für Max-Bubbles)
 function getMaxBubbles() {
   const width = window.innerWidth;
