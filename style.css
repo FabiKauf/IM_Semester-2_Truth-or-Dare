@@ -196,19 +196,18 @@
     align-self: flex-end;
   }
   
+  #language-select {
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
   /*.chat-image-wrapper img {
     max-width: 100%;
     height: auto;
     display: block;
   }*/
 
-  .game-section {
-  display: none;
-}
-
-.game-section.active {
-  display: block;
-}
   
   /* Tablbet styles */
   @media (min-width: 768px) {
@@ -255,8 +254,12 @@
       background: #FFF;
       background: linear-gradient(0deg, rgba(255, 255, 255, 1) 10%, rgba(44, 226, 239, 1) 10%, rgba(44, 226, 239, 1) 55%, rgba(241, 139, 69, 1) 55%, rgba(241, 139, 69, 1) 100%);
       justify-content: center;
+      display: none;
     }
-
+    
+    .game-section.active {
+      display: block;
+    }
     .chat-image-wrapper {
       position: relative;
       display: flex;
@@ -265,7 +268,7 @@
     }
     
     .chat-img {
-      max-width: 90%;
+      max-width: 100%;
       height: auto;
     }
     
@@ -302,10 +305,9 @@
     }
 .chat-bubbles {
     position: absolute;
-    top: 10%;
     left: 0;
     right: 0;
-    padding: 0 5rem;
+    padding: 30px 5rem;
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
