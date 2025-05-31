@@ -7,11 +7,36 @@ const playButton = document.querySelector('.play-button');
 const gameSection = document.querySelector('.game-section');
 const languageSelect = document.getElementById('language-select');
 
+const modal = document.getElementById('language-modal');
+const languageButton = document.querySelector('.language-button');
+const modalOptions = modal.querySelectorAll('li');
 
+let selectedLanguage = 'en'; // Standardmäßig Englisch
 
-//  Sprachcode holen
+// Öffnet das Sprachmenü
+languageButton.addEventListener('click', () => {
+  modal.style.display = 'flex';
+});
+
+// Aktualisiert die ausgewählte Sprache und schließt das Menü
+modalOptions.forEach(option => {
+  option.addEventListener('click', () => {
+    selectedLanguage = option.dataset.lang; // Sprachcode speichern
+    languageButton.textContent = option.textContent; // Button-Text aktualisieren
+    modal.style.display = 'none'; // Modal schließen
+  });
+});
+
+// Schließt das Modal, wenn außerhalb geklickt wird
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+
+// Funktion: Gibt die aktuell ausgewählte Sprache zurück
 function getSelectedLanguage() {
-  return languageSelect.value || 'en'; // fallback: englisch
+  return selectedLanguage; // Rückgabe der globalen Variable
 }
 
 playButton.addEventListener('click', () => {
@@ -27,18 +52,16 @@ function getMaxBubbles() {
 
 // Funktion: Neue Sprechblase hinzufügen
 function addBubble(text, type) {
+  const chatBubbles = document.querySelector('.chat-bubbles');
+  const bubble = document.createElement('div');
+  bubble.className = `bubble ${type}`;
+  bubble.textContent = text; // Nur den Text ohne Sprachcode hinzufügen
+  chatBubbles.appendChild(bubble);
 
-    const bubble = document.createElement('div');
-    bubble.classList.add('bubble', type); // `type` = truth oder dare
-    bubble.textContent = text;
-  
-    chatBubbles.appendChild(bubble);
-  
-    // Falls zu viele Sprechblasen: die älteste entfernen
-    while (chatBubbles.children.length > getMaxBubbles()) {
-      chatBubbles.removeChild(chatBubbles.firstChild);
-    }
-
+  // Falls zu viele Sprechblasen: die älteste entfernen
+  while (chatBubbles.children.length > getMaxBubbles()) {
+    chatBubbles.removeChild(chatBubbles.firstChild);
+  }
 }
 
 // API-Abruf
